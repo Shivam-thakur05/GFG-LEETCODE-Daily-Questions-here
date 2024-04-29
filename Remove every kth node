@@ -1,0 +1,23 @@
+class Solution {
+public:
+    Node* deleteK(Node *head, int K) {
+        if (head == NULL || K <= 1) // If head is NULL or K is non-positive, nothing to delete
+            return NULL;
+
+        Node* prev = NULL;
+        Node* curr = head;
+        
+        int i = 0; // Start counting from 1 since we're deleting Kth node
+        while (curr != NULL) {
+            i++;
+            if(i == K){
+                prev->next = curr->next;
+                delete(curr);
+                i = 0;
+            }
+            prev = curr;
+            curr = curr->next;            
+        }
+        return head;
+    }
+};
