@@ -1,0 +1,26 @@
+class Solution {
+  public:
+    // task is to complete this function
+    // function should return head to the list after making
+    // necessary arrangements
+    struct Node* arrangeCV(Node* head) {
+         Node *vowel=new Node(-1);
+         Node *consonant=new Node(-1);
+         Node *v=vowel,*c=consonant;
+       
+      while(head!=NULL){
+          if(head->data=='a' || head->data=='e' || head->data=='o' || head->data=='i' || head->data=='u'){
+              vowel->next = new Node(head->data);
+              vowel=vowel->next;
+          }
+          else{
+                consonant->next = new Node(head->data);
+                consonant=consonant->next;
+          }
+          head=head->next;
+      }
+      vowel->next=c->next;
+      return v->next;
+        
+    }
+};
