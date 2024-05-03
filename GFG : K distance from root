@@ -1,0 +1,25 @@
+class Solution
+{
+    int height(struct Node* root, int k, vector<int>&ans){
+        if(root == NULL) return 0;
+        
+        if(k == 0) {
+            ans.push_back(root->data);
+            return 1;
+            
+        }
+        int left = height(root->left,k-1,ans);
+        int right = height(root->right,k-1,ans);
+        
+        int res = max(left,right)+1;
+    }
+    
+    public:
+    // function should print the nodes at k distance from root
+    vector<int> Kdistance(struct Node *root, int k)
+    {
+      vector<int>ans;
+      height(root,k,ans);
+      return ans;
+    }
+};
