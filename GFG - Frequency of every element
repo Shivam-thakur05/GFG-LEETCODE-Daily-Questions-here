@@ -1,0 +1,13 @@
+class Solution{   
+public:
+    vector<int> frequency(int n, vector<int> &a){
+        vector<int> ans(n, 0); // Initialize answer vector with zeros
+        vector<int> freq(2000 , 0); // Initialize frequency array with zeros
+        
+        for (int i = n - 1; i >= 0; i--) {
+            ans[i] = ++freq[a[i]+1000]; // Increment frequency of a[i] and assign it to ans[i]
+        }
+        
+        return ans;
+    }
+};
